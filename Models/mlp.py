@@ -56,7 +56,6 @@ class MLP(torch.nn.Module):
                         hidden_sizes: List[int], 
                         num_classes: int) -> Tuple[nn.ModuleList, nn.Module]:
         """
-        Build the layers for MLP. Be ware of handlling corner cases.
         :param input_size: An int
         :param hidden_sizes: A list of ints. E.g., for [32, 32] means two hidden layers with 32 each.
         :param num_classes: An int
@@ -87,10 +86,9 @@ class MLP(torch.nn.Module):
         """ For bias set to zeros. For weights set to glorot normal """
         nn.init.xavier_normal_(module.weight)
         nn.init.zeros_(module.bias)
-        # raise NotImplementedError
         
     def forward(self, images: torch.Tensor) -> torch.Tensor:
-        """ Forward images and compute logits.
+        """ 
         1. The images are first fattened to vectors. 
         2. Forward the result to each layer in the self.hidden_layer with activation_fn
         3. Finally forward the result to the output_layer.
@@ -104,4 +102,3 @@ class MLP(torch.nn.Module):
             x = self.activation_fn(self.activation, x)
         x = self.output_layer(x)
         return x
-        raise NotImplementedError
