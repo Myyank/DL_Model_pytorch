@@ -1,9 +1,3 @@
-'''ResNet in PyTorch.
-
-Reference:
-[1] Kaiming He, Xiangyu Zhang, Shaoqing Ren, Jian Sun
-    Deep Residual Learning for Image Recognition. arXiv:1512.03385
-'''
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -18,7 +12,7 @@ class BasicBlock(nn.Module):
             :param stride: The stride of first conv
         """
         super(BasicBlock, self).__init__()
-        # Uncomment the following lines, replace the ? with correct values.
+
         self.conv1 = nn.Conv2d(in_planes, planes, kernel_size=3, stride=stride, padding=1, bias=False)
         self.bn1 = nn.BatchNorm2d(planes)
         self.conv2 = nn.Conv2d(planes, planes, kernel_size=3,
