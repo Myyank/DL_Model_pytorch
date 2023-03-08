@@ -16,7 +16,6 @@ class PatchEmbed(nn.Module):
         self.grid_size = img_size // patch_size
         self.num_patches = self.grid_size * self.grid_size
         
-        # Uncomment this line and replace ? with correct values
         self.proj = nn.Conv2d(in_chans, embed_dim, kernel_size=self.patch_size, stride=self.patch_size)
 
     def forward(self, x):
@@ -158,5 +157,4 @@ class MLPMixer(nn.Module):
         plt.savefig(logdir+"/tklayer.png")
         plt.show()
 
-        # raise NotImplementedError
  
